@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "409444998037",
+    "project_id": "markett-522ef",
+    "storage_bucket": "markett-522ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:409444998037:android:17fd576b7edde6282ab49c",
+        "android_client_info": {
+          "package_name": "com.markett"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "409444998037-gjrpamlrhd6065gkp9bdtbt5uoeng6lo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCg1jqdkfP1y_XSj3gSf0hARbAqwP1E82g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "409444998037-gjrpamlrhd6065gkp9bdtbt5uoeng6lo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
