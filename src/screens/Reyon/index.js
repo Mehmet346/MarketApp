@@ -1,63 +1,61 @@
-import React from "react";
-import {SafeAreaView, ScrollView, Text,FlatList, TouchableOpacity, View} from "react-native";
-
+import React, { useEffect, useState } from "react";
+import { Button, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import firestore from "@react-native-firebase/firestore"
 
-export default class Rayon extends React.Component {
+function Product() {
+    const [product, setProduct] = useState([]);
 
-    state = {
-        users: '',
-    }
-    
-    static navigationOptions = ( { navigation }) =>  {
-        return {
-            title:'Market',
-            headerRight:<Text>150 TL</Text>,
-            
-            headerStyle: {
-                backgroundColor: '#d50000',
-              },
-              headerTintColor: '#fff',
-              headerTitleStyle: {
-                fontWeight: 'bold',
-              },
-        }
-    };
-    constructor(props) {
-        super(props);
-        this.getProduct();
-        this.subscriber = firestore().collection('product').get()
-        .then(querySnapshot => {
-          
 
-            querySnapshot.forEach(documentSnapshot => {
-              users.push({
-                ...documentSnapshot.data(),
-                key: documentSnapshot.id,
-              });
-            });
-      
-            this.setState({users: [this.users]});
-        })
+    useEffect(() => {
+        getProduct();
+    }, []);
+
+    function getProduct() {
+        firestore().collection('product')
+            .get()
+            .then((res) => {
+                const product = res.docs.map(doc => ({
+                    data: doc.data(),
+                    id: doc.id,
+                }))
+                setProduct(product)
+            })
+            .catch((error) => {
+                console.log(error.message);
+            })
     }
 
-   getProduct = async () => {
-    const userDocument = await firestore().collection("product").get()
-    console.log(userDocument)
-   }
-    render() {
-        return(
-            <SafeAreaView>
-                    <FlatList
-                    data={this.state.users}
-                    renderItem={({ item }) => (
-                        <View style={{ height: 50, flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                        <Text>User ID: {item}</Text>
-                      
+    return (
+        <SafeAreaView>
+            <View>
+                {product.map(product => (
+                    <View key={product.id}>
+                        <View style={style.main}>
+                            <View style={style.area}>
+                                <Text>{product.data.ProductName}</Text>
+                                <Text>Kalan: {product.data.ProductStock}</Text>
+                                <Text>{product.data.ProductPrice} TL</Text>
+                            </View>
+                                    
+                            <View style= {style.counter}>
+                                    <TouchableOpacity style={style.button}><Text>Button</Text></TouchableOpacity>
+                                    <Text>0</Text>
+                                    <TouchableOpacity style={style.button}><Text>Button</Text></TouchableOpacity>
+                            </View>
                         </View>
-                    )}
-    />
-            </SafeAreaView>
-        )
-    }
+                    </View>
+                ))}
+            </View>
+        </SafeAreaView>
+    );
 }
+
+export default Product;
+
+
+const style = StyleSheet.create({
+    main: { backgroundColor: 'powderblue', margin: 15, padding: 15,},
+    area: { justifyContent: "space-between", flexDirection: "row", display: "flex" , marginHorizontal: 20},
+    counter:{justifyContent: "space-between", flexDirection: "row", display: "flex", marginTop: 15, marginHorizontal: 60},
+    
+})
