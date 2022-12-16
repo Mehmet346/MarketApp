@@ -115,10 +115,11 @@ const style = StyleSheet.create({
     hero_description:{ color:'rgba(26,25,57,0.8)',fontSize:17,marginTop:15,fontWeight:'500'},
     form:{ flex:1,marginTop:80},
     input:{
-        backgroundColor:'#bdbdbd',
+        backgroundColor:'#F7F7F7',
         padding:15,
         width:300,
         height:50,
+        borderRadius:10,
         paddingHorizontal:25,
         marginBottom:10
     },
@@ -128,9 +129,10 @@ const style = StyleSheet.create({
         color:'#706E83'
     },
     button:{
-        backgroundColor: '#bdbdbd',
+        backgroundColor: '#7165E3',
         padding:20,
         marginTop:45,
+        borderRadius: 10,
         justifyContent: 'center',
         alignItems:'center'
     },
