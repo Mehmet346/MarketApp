@@ -37,11 +37,37 @@ const AuthenticateStack = createStackNavigator({
 });
 
 const AppBottomNavigator = createBottomTabNavigator({
-        Rayon:RayonStack,
-        Basket:BasketStack,
-        AccountStatment:AccountStatmentStack,
-        Admin:AdminStack
-})
+        Rayon:{
+            screen:RayonStack,
+            navigationOptions:{
+                title:'Reyon',
+            }
+        },
+        Basket:{
+            screen:BasketStack,
+            navigationOptions:{
+                title: 'Sepet'
+            }
+        },
+        AccountStatment:{
+            screen:AccountStatmentStack,
+            navigationOptions:{
+                title: 'Hesap Dökümü'
+            }
+        },
+        Admin:{
+            screen:AdminStack,
+            navigationOptions:{
+                title:'Admin'
+            }
+        },
+}, {
+    tabBarOptions:{
+        activeBackgroundColor:'#ec407a',
+        inactiveBackgroundColor: '#c62828',
+    }
+}
+)
 
 const SwitchNavigator = createSwitchNavigator({
     App:AppBottomNavigator,
