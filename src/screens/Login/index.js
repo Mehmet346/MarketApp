@@ -5,18 +5,7 @@ import {Formik} from "formik";
 import auth from '@react-native-firebase/auth';
 export default  class Index extends Component {
 
-    static navigationOptions = () =>  {
-        return {
-            title:'Giriş Ekranı',
-            headerStyle: {
-              backgroundColor: '#d50000',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-        }
-    };
+
     constructor() {
         super();
         this.state = {
