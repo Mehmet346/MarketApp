@@ -83,7 +83,7 @@ import { PracticeContext } from '../Global/PracticeContext';
 }
 
 const style = StyleSheet.create({
-    main: { backgroundColor: 'powderblue', margin: 15, padding: 15,},
+    main: { backgroundColor: '#64ffda', margin: 15, padding: 15,},
     area: { justifyContent: "space-between", flexDirection: "row", display: "flex" , marginHorizontal: 20},
     counter:{justifyContent: "space-between", flexDirection: "row", display: "flex", marginTop: 15, marginHorizontal: 60},
     button: {padding:5, backgroundColor: 'grey'},
