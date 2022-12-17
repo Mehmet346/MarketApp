@@ -2,7 +2,7 @@ import React, {useState, useContext} from 'react';
 import {SafeAreaView, ScrollView, StyleSheet ,Text, TouchableOpacity, View} from "react-native";
 import { PracticeContext } from '../Global/PracticeContext';
 
-export default function Basket() {
+export default function Basket({navigation}) {
     const {
         kekstra, 
         kekstraPrice, 
@@ -76,6 +76,18 @@ export default function Basket() {
                         </View>
                     </View>
             </View>
+                    <View style={style.footer}>
+                        <View style={{marginBottom: 20}}>
+                            <Text style={style.text}>Toplam: {150 - amount} TL</Text>
+                        </View>
+
+                    </View>
+                    <View >
+                            <TouchableOpacity style={style.button_footer}  onPress={() => navigation.navigate('AccountStatment')
+      }>
+                                <Text style={style.text}>Onayla</Text>
+                            </TouchableOpacity>
+                        </View>
         </SafeAreaView>
         )
     
@@ -83,11 +95,15 @@ export default function Basket() {
 
 
 const style = StyleSheet.create({
-    main: { backgroundColor: 'powderblue', margin: 15, padding: 15,},
+    main: { backgroundColor: '#64ffda', margin: 15, padding: 15,},
     area: { justifyContent: "space-between", flexDirection: "row", display: "flex" , marginHorizontal: 20},
     counter:{justifyContent: "space-between", flexDirection: "row", display: "flex", marginTop: 15, marginHorizontal: 60},
     button: {padding:5, backgroundColor: 'grey'},
     count: {fontWeight: "600", paddingHorizontal: 5},
-    count_weight: {fontWeight: "700", fontSize:20}
+    count_weight: {fontWeight: "700", fontSize:20},
+    footer: {alignItems:'center', marginTop: 200 },
+    text: {fontWeight: '400', fontSize:30, },
+    button_footer: {marginHorizontal:100, alignItems:'center', backgroundColor: 'grey',},
+
 })
 
