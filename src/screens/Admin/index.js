@@ -20,7 +20,9 @@ export default function Admin() {
         setSut,
         setsutStock,
         amount,
-        setAmount
+        setAmount,
+        AdminAmount, 
+        setAdminAmount
     } = useContext(PracticeContext)
 
 
@@ -50,14 +52,14 @@ export default function Admin() {
 
                 <View style={style.main}>
                     <View style={style.product}>
-                        <Text style={style.product}>KEKSTRA</Text>
-                        <Text style={style.product}>ÇUBUK KRAKER</Text>
-                        <Text style={style.product}>SÜT</Text>
+                        <Text style={style.product}>PERSONEL 1</Text>
+                        <Text style={style.product}>PERSONEL 2</Text>
+                        <Text style={style.product}>PERSONEL 3</Text>
                     </View>
                     <View>
-                        <Text style={style.product}>{kekstraStock}</Text>
-                        <Text style={style.product}>{cubukKrakerStock}</Text>
-                        <Text style={style.product}>{sutStock}</Text>
+                        <Text style={style.product}>35 TL</Text>
+                        <Text style={style.product}>150 TL</Text>
+                        <Text style={style.product}>25 TL</Text>
                     </View>
                     <View style={style.borc}>
                         <Text style={style.state}>ÖDENDİ</Text>
@@ -75,7 +77,7 @@ export default function Admin() {
                         <Text>MEVCUT BAKİYE</Text>
                     </View>
                     <View>
-                        <Text>{amount} TL</Text>
+                        <Text>{AdminAmount} TL</Text>
                     </View>
                 </View>
 
