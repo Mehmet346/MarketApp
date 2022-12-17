@@ -17,11 +17,12 @@ const PracticeProvider = ({children}) => {
     const sutPrice = 12;
 
     const [amount, setAmount] = React.useState(150);
+    const [AdminAmount, setAdminAmount] = React.useState(0);
     
 
     return(
        <PracticeContext.Provider value={{
-              kekstra, kekstraPrice, kekstraStock, setKekstra,setkekstraStock, cubukKraker, cubukKrakerStock, cubukKrakerPrice, setCubukKraker, setcubukKrakerStock, sut,sutStock, sutPrice, setSut, setsutStock, amount, setAmount
+              kekstra, kekstraPrice, kekstraStock, setKekstra,setkekstraStock, cubukKraker, cubukKrakerStock, cubukKrakerPrice, setCubukKraker, setcubukKrakerStock, sut,sutStock, sutPrice, setSut, setsutStock, amount, setAmount, AdminAmount, setAdminAmount
        }}>
               {children}
        </PracticeContext.Provider>
