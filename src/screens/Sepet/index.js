@@ -20,7 +20,9 @@ export default function Basket({navigation}) {
         setSut, 
         setsutStock, 
         amount, 
-        setAmount
+        setAmount,
+        AdminAmount, 
+        setAdminAmount
         } = useContext(PracticeContext)
 
 
@@ -83,8 +85,7 @@ export default function Basket({navigation}) {
 
                     </View>
                     <View >
-                            <TouchableOpacity style={style.button_footer}  onPress={() => navigation.navigate('AccountStatment')
-      }>
+                            <TouchableOpacity style={style.button_footer}  onPress={() => {setAdminAmount(150 - amount); navigation.navigate('AccountStatment')} }>
                                 <Text style={style.text}>Onayla</Text>
                             </TouchableOpacity>
                         </View>
