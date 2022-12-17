@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import firestore from "@react-native-firebase/firestore"
 import { PracticeContext } from '../Global/PracticeContext';
@@ -23,14 +23,29 @@ import { PracticeContext } from '../Global/PracticeContext';
         setsutStock,
         amount,
         setAmount,
-        AdminAmount, 
-        setAdminAmount
         } = useContext(PracticeContext)
+        
 
+        Product.navigationOptions = ({}) => ({
+            title: 'Market',
+            headerRight: () => <Text style={style.bar}>{amount} TL</Text>,
+            headerStyle: {
+                backgroundColor: '#d50000',
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: 'bold',
+              },
+        });
+    
+        useEffect(() => {
+             navigation.setParams({ amount });
+        }, [amount]);
+        
+        
     return (
         <SafeAreaView>
             <View>
-                <Text>{amount}</Text>
                     <View >
                         <View style={style.main}>
                             <View style={style.area}>
@@ -88,11 +103,21 @@ const style = StyleSheet.create({
     main: { backgroundColor: '#64ffda', margin: 15, padding: 15,},
     area: { justifyContent: "space-between", flexDirection: "row", display: "flex" , marginHorizontal: 20},
     counter:{justifyContent: "space-between", flexDirection: "row", display: "flex", marginTop: 15, marginHorizontal: 60},
-    button: {padding:5, backgroundColor: 'grey'},
+    button: {padding:5, backgroundColor: '#bdbdbd'},
     count: {fontWeight: "600", paddingHorizontal: 5},
-    count_weight: {fontWeight: "700", fontSize:20}
+    count_weight: {fontWeight: "700", fontSize:20},
+    bar:{color: 'white', marginRight: 15}
 })
 
-
+Product.navigationOptions = {
+    title: 'Market',
+    headerStyle: {
+      backgroundColor: 'red',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+  };
 
 export default Product;
