@@ -1,6 +1,5 @@
 import React, {useState, useContext, useEffect} from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import firestore from "@react-native-firebase/firestore"
 import { PracticeContext } from '../Global/PracticeContext';
 
 
