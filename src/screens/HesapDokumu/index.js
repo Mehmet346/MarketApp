@@ -1,33 +1,39 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import {SafeAreaView, ScrollView, StyleSheet ,Text, TouchableOpacity, View} from "react-native";
 import { PracticeContext } from '../Global/PracticeContext';
 
-export default function Basket({navigation}) {
+export default function AccountStatment({navigation}) {
     const {
         kekstra, 
         kekstraPrice, 
-        kekstraStock, 
-        setKekstra,
-        setkekstraStock, 
         cubukKraker, 
-        cubukKrakerStock, 
         cubukKrakerPrice, 
-        setCubukKraker, 
-        setcubukKrakerStock, 
-        sut,
-        sutStock, 
+        sut, 
         sutPrice, 
-        setSut, 
-        setsutStock, 
         amount, 
-        setAmount
         } = useContext(PracticeContext)
 
+        
+        AccountStatment.navigationOptions = ({}) => ({
+            title: 'Hesap',
+            headerRight: () => <Text style={style.bar}>{amount} TL</Text>,
+            headerStyle: {
+                backgroundColor: '#d50000',
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: 'bold',
+              },
+        });
+    
+        useEffect(() => {
+             navigation.setParams({ amount });
+        }, [amount]);
+        
 
         return(
             <SafeAreaView>
             <View>
-                <Text>{amount}</Text>
                     <View >
                         <View style={style.main}>
                             <View style={style.area}>
@@ -88,6 +94,7 @@ const style = StyleSheet.create({
     text: {fontWeight: '400', fontSize:30, },
     button_footer: {marginHorizontal:100, alignItems:'center', backgroundColor: 'grey',},
     product: { paddingHorizontal: 5, paddingVertical: 3, marginTop:10 , fontWeight:'bold'},
-    num: {fontSize: 30, fontWeight: 'bold',}
+    num: {fontSize: 30, fontWeight: 'bold',},
+    bar:{color: 'white', marginRight: 15}
 })
 
