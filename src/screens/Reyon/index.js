@@ -22,7 +22,9 @@ import { PracticeContext } from '../Global/PracticeContext';
         setSut, 
         setsutStock,
         amount,
-        setAmount
+        setAmount,
+        AdminAmount, 
+        setAdminAmount
         } = useContext(PracticeContext)
 
     return (
