@@ -36,7 +36,6 @@ export default function Admin({navigation}) {
     auth()
     .signOut()
     .then(() => console.log('User signed out!'));
-    this.props.navigation.navigate('Auth');
    }
 
     return (
